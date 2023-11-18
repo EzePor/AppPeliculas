@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPeliculas.Views.InicioApp"
+             Title="InicioApp">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Margin="100,10,100,10">
+            <Label 
+            Text="AppPeliculas"
+        FontSize="32"
+            VerticalOptions="Start" 
+            HorizontalOptions="Center" />
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*">
+
+                <Button
+                x:Name="VerTrailerBtn"
+                Text="VER TRAILER"              
+                Clicked="VerTrailerBtn_Clicked"
+                Style="{StaticResource EstiloBoton}"
+                Grid.Row="0"
+                Grid.Column="0"
+                />
+              
+
+
+                <Button
+                x:Name="PaginaInicioBtn"
+                Text=" Abrir la Página de Inicio"
+                Clicked="AbrirPaginaInicio"
+                Style="{StaticResource EstiloBotonDestacado}"
+                Grid.Row="0"
+                Grid.Column="1"
+                />
+
+
+
+                <Button
+                x:Name="AgregarPeliculaBtn"
+                Text=" Agregar Peliculas"              
+                Clicked="AgregarPeliculaBtn_Clicked"
+                Style="{StaticResource EstiloBoton}"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                />
+
+                <Button
+                x:Name="ControlesMauiBtn"
+                Text=" Abrir controles MAUI"
+                Clicked="AbrirPaginaControlesMaui"
+                Style="{StaticResource EstiloBotonDestacado}"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                />
+                
+                <Button
+                x:Name="EliminarPeliculaBtn"
+                Text=" Eliminar Peliculas"              
+                Clicked="EliminarPeliculaBtn_Clicked"
+                Style="{StaticResource EstiloBoton}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                />
+                <Button
+                x:Name="EditarPeliculaBtn"
+                Text=" Editar Peliculas"              
+                Clicked="EditarPeliculaBtn_Clicked"
+                Style="{StaticResource EstiloBoton}"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    />
+
+
+            </Grid>
+
+            <ScrollView HeightRequest="550" >
+                
+                <CollectionView x:Name= "PeliculasCollectionView"
+                 SelectionMode="Single" >
+
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="*,2*" ColumnDefinitions="*,2*,2*">
+                                <Image Grid.Row="0" 
+                       Grid.Column="0" 
+                       Grid.RowSpan="2"
+                       Source="{Binding portada_url}"/>
+                                <Label Grid.Row="0" 
+                       Grid.Column="1" 
+                       Grid.ColumnSpan="2" 
+                       Text="{Binding nombre}" 
+                       FontSize="28"/>
+                                <Label Grid.Row="1" 
+                       Grid.Column="1"  
+                       Text="{Binding genero}" />
+                                <Label Grid.Row="1" 
+                       Grid.Column="2"  
+                       Text="{Binding duracion}" />
+
+                            </Grid>
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </ScrollView>
+
+            
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
